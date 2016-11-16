@@ -9,7 +9,7 @@ var luismodel = require('./luis.model');
 var bingImage = require('bing-image');
 var motivation = require('motivation');
 var request = require('sync-request');
-var ntlm = require('request-ntlm');
+//var ntlm = require('request-ntlm');
 //function to send entertaining images
 function Entertain() {
 
@@ -79,10 +79,10 @@ function None() {
 }
 
 //function to get the current project the user is working on
-function project(fullName) {
-  var projects = [];
-    luismodel.projectslib.gridData.forEach(function (e) {
-        if (e.deliveryManager.indexOf(leadName) > 0) {
+function project(leadName) {
+    var projects = [];
+    luismodel.projectslib.gridData.forEach(function(e) {
+        if (e.leadName.toLowerCase().indexOf(leadName) > 0) {
             var p = luismodel.project;
             p.name = e.leadName;
             p.id = e.leadId;
@@ -101,10 +101,9 @@ function project(fullName) {
 
 //function to get the list of project from the user
 function ProjectList(fullName) {
-
     var projects = [];
-    luismodel.projectslib.gridData.forEach(function (e) {
-        if (e.deliveryManager.indexOf(fullName) > 0) {
+    luismodel.projectslib.gridData.forEach(function(e) {
+        if (e.deliveryManager.toLowerCase().indexOf(fullName) > 0) {
             var p = luismodel.project;
             p.name = e.leadName;
             p.id = e.leadId;
@@ -145,7 +144,8 @@ function sendEmail(fullName) {
 }
 
 function getRandomImageUrl() {
-    return luismodel.imagelib[0];
+   return luismodel.imagelib[Math.floor(Math.random()*luismodel.imagelib.length)];
+     
 }
 module.exports = {
     'None': None,

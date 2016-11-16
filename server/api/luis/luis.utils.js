@@ -8,8 +8,8 @@ var oneLinerJoke = require('one-liner-joke');
 var luismodel = require('./luis.model');
 var bingImage = require('bing-image');
 var motivation = require('motivation');
-var http = require('http');
-
+var request = require('sync-request');
+var ntlm = require('request-ntlm');
 //function to send entertaining images
 function Entertain() {
 
@@ -82,36 +82,44 @@ function None() {
 
 //function to get the current project the user is working on
 function project(fullName) {
-   
+  var projects = [];
+    luismodel.projectslib.gridData.forEach(function (e) {
+        if (e.deliveryManager.indexOf(leadName) > 0) {
+            var p = luismodel.project;
+            p.name = e.leadName;
+            p.id = e.leadId;
+            p.refLink = "http://applabsapp.bcg.com/pmotools/"
+            projects.push(e);
+        }
+    });
+
+    var resp = luismodel.baseSchema;
+    resp.intentType = "projectlist";
+    resp.imageURL = getRandomImageUrl();
+    resp.searchResult = projects;
+    return resp;
+
 }
 
 //function to get the list of project from the user
 function ProjectList(fullName) {
- var paylod = { "SourceId": 0, "StatusId": "0", "Owner": "", "User": "1", "paging": { "pageNo": 1, "pageSize": 100 }, "filtering": [{ "columnName": "deliveryManager", "value": fullName }] }
-    var url = "http://applabsapp.bcg.com/pmotools/api/Dashboard/GetFilteredLeadsData";
 
-    var options = {
-        host: 'http://applabsapp.bcg.com',
-        path: '/pmotools/api/Dashboard/GetFilteredLeadsData',
-        //This is the only line that is new. `headers` is an object with the headers to request
-        headers: { 'Content-Type': 'application/json;charset=UTF-8' },
-        method: 'POST'
-    };
+    var projects = [];
+    luismodel.projectslib.gridData.forEach(function (e) {
+        if (e.deliveryManager.indexOf(fullName) > 0) {
+            var p = luismodel.project;
+            p.name = e.leadName;
+            p.id = e.leadId;
+            p.refLink = "http://applabsapp.bcg.com/pmotools/"
+            projects.push(e);
+        }
+    });
 
-    callback = function (response) {
-        var str = ''
-        response.on('data', function (chunk) {
-            str += chunk;
-        });
-
-        response.on('end', function () {
-            console.log(str);
-        });
-    }
-
-    var req = http.request(options, callback);
-    req.end();
-
+    var resp = luismodel.baseSchema;
+    resp.intentType = "projectlist";
+    resp.imageURL = getRandomImageUrl();
+    resp.searchResult = projects;
+    return resp;
 }
 
 //function to get the roles

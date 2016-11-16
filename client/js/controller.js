@@ -9,6 +9,7 @@ jeenee.controller('appController', function ($scope, $http) {
     self.imageURL = '';
     self.text = '';
     self.isMotivateCard = false;
+    self.isJoke = false;
     self.getOutput = function () {
 
         // console.log(self.query.length);
@@ -19,11 +20,20 @@ jeenee.controller('appController', function ($scope, $http) {
             self.imageURL = '';
             self.thought = '';
             self.isMotivateCard = false;
+            self.isJoke = false;
         }
         if (self.query && self.query.length > 5) {
 
             $http.get('http://localhost:9000/api/ask?q=' + encodeURIComponent(self.query)).then(function (data) {
                 if (data.data.searchResult && self.query.length > 5) {
+
+
+                    if(data.data.intentType=='joke'){
+                        self.isJoke = true;
+                        self.text = data.data.searchResult.text;
+                    }
+
+
                     if (data.data.intentType == 'motivate') {
                         self.isMotivateCard = true;
                         self.author = data.data.searchResult.author;
@@ -31,6 +41,10 @@ jeenee.controller('appController', function ($scope, $http) {
                         self.thought = data.data.searchResult.text;
                         console.log(self.author);
                     }
+
+
+
+
 
                 }
 

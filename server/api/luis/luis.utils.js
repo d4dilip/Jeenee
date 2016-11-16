@@ -79,10 +79,10 @@ function None() {
 }
 
 //function to get the current project the user is working on
-function project(fullName) {
+function project(leadName) {
   var projects = [];
     luismodel.projectslib.gridData.forEach(function (e) {
-        if (e.deliveryManager.indexOf(leadName) > 0) {
+        if (e.leadName.toLowerCase().indexOf(leadName) > 0) {
             var p = luismodel.project;
             p.name = e.leadName;
             p.id = e.leadId;
@@ -104,7 +104,7 @@ function ProjectList(fullName) {
 
     var projects = [];
     luismodel.projectslib.gridData.forEach(function (e) {
-        if (e.deliveryManager.indexOf(fullName) > 0) {
+        if (e.deliveryManager.toLowerCase().indexOf(fullName) > 0) {
             var p = luismodel.project;
             p.name = e.leadName;
             p.id = e.leadId;

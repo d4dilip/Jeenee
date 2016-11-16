@@ -54,6 +54,7 @@ exports.index = function (req, res) {
         //On success of prediction
         onSuccess: function (response) {
             var resp=onSuccess(response);
+            console.log(resp);
             return res.status(200).json(resp);
         },
 

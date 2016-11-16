@@ -4,20 +4,36 @@
 
 jeenee.controller('appController',function ($scope,$http) {
 
-    $scope.author = '';
-    $scope.imageURL = '';
-    $scope.text = '';
+    var self = this;
+    self.author = '';
+    self.imageURL = '';
+    self.text = '';
+    self.isMotivateCard = false;
+    self.getOutput = function () {
 
-    $scope.getOutput = function () {
+        // console.log(self.query.length);
 
-        console.log($scope.query);
-        if($scope.query && $scope.query.length>5){
+        if(!self.query){
+            console.log("reached");
+            self.author = '';
+            self.imageURL = '';
+            self.thought = '';
+            self.isMotivateCard = false;
+        }
+        if(self.query && self.query.length>5){
 
-            $http.get('http://localhost:9000/api/ask?q='+ encodeURIComponent($scope.query)).then(function (data) {
-                $scope.author = data.data.searchResult.author;
-                $scope.imageURL = data.data.searchResult.imageURL;
-                $scope.thought = data.data.searchResult.text;
-                console.log($scope.author);
+            $http.get('http://localhost:9000/api/ask?q='+ encodeURIComponent(self.query)).then(function (data) {
+                if(data.data.searchResult){
+                    if (data.data.intentType == 'motivate'){
+                        self.isMotivateCard = true;
+                        self.author = data.data.searchResult.author;
+                        self.imageURL = data.data.searchResult.imageURL;
+                        self.thought = data.data.searchResult.text;
+                        console.log(self.author);
+                    }
+
+                }
+
             })
         }
 

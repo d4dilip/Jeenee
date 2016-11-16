@@ -47,13 +47,11 @@ function GetName() {
 
 //function to get the template all or template name
 function getTemplates(templateName) {
-
-    if (templateName == 'all') {
-        //send all templates
-    }
-    else {
-        //send the particular template
-    }
+    var resp = luismodel.baseSchema;
+    resp.intentType = "templates";
+    resp.imageURL = getRandomImageUrl();
+    resp.searchResult = luismodel.templateslib;
+    return resp;
 
 }
 

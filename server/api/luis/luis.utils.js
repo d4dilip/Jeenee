@@ -86,7 +86,8 @@ function project(leadName) {
             var p = luismodel.project;
             p.name = e.leadName;
             p.id = e.leadId;
-            p.refLink = "http://applabsapp.bcg.com/pmotools/"
+            p.refLink = "http://applabsapp.bcg.com/pmotools/";
+            e.comments = e.comments.trim();
             projects.push(e);
         }
     });
@@ -107,7 +108,7 @@ function ProjectList(fullName) {
             var p = luismodel.project;
             p.name = e.leadName;
             p.id = e.leadId;
-            p.refLink = "http://applabsapp.bcg.com/pmotools/"
+            p.refLink = "http://applabsapp.bcg.com/pmotools/";
             projects.push(e);
         }
     });

@@ -19,6 +19,7 @@
 
     <script type="text/javascript" src="js/component/motivate/index.js"></script>
     <script type="text/javascript" src="js/component/joke/index.js"></script>
+    <script type="text/javascript" src="js/component/project/index.js"></script>
 
 
 </head>
@@ -78,6 +79,10 @@
 
                 <div ng-show="$ctrl.isJoke">
                     <joke text={{$ctrl.text}}></joke>
+                </div>
+
+                <div ng-show="$ctrl.isProjects">
+                    <project projects={{$ctrl.projects}}></project>
                 </div>
 
             </div>

@@ -10,6 +10,7 @@ jeenee.controller('appController', function ($scope, $http) {
     self.text = '';
     self.isMotivateCard = false;
     self.isJoke = false;
+    self.isProjects = false;
     self.getOutput = function () {
 
         // console.log(self.query.length);
@@ -21,6 +22,7 @@ jeenee.controller('appController', function ($scope, $http) {
             self.thought = '';
             self.isMotivateCard = false;
             self.isJoke = false;
+            self.isProjects = false;
         }
         if (self.query && self.query.length > 5) {
 
@@ -31,6 +33,11 @@ jeenee.controller('appController', function ($scope, $http) {
                     if(data.data.intentType=='joke'){
                         self.isJoke = true;
                         self.text = data.data.searchResult.text;
+                    }
+
+                    if(data.data.intentType=='projectlist'){
+                        self.isProjects = true;
+                        self.projects = data.data.searchResult;
                     }
 
 

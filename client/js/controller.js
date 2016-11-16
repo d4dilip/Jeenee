@@ -7,6 +7,7 @@ jeenee.controller('appController',function ($scope,$http) {
     $scope.author = '';
     $scope.imageURL = '';
     $scope.text = '';
+
     $scope.getOutput = function () {
 
         console.log($scope.query);

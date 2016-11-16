@@ -21,7 +21,7 @@ module.exports.user ={
 
 module.exports.info = {
   "title":"",
-  "Subtitle":"",
+  "subtitle":"",
   "description":"",
   "reflink":""
 }
@@ -38,7 +38,7 @@ module.exports.template = {
 
 module.exports.motivation ={
 "imageURL":"",
-"quote":"",
+"text":"",
 "author":""
 }
 

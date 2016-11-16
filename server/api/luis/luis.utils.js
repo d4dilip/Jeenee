@@ -18,7 +18,17 @@ function Entertain() {
 //function to send the bot information
 function getBotInfo() {
 
-    return botversion;
+     var resp = luismodel.baseSchema;
+    resp.intentType = "info";
+    resp.imageURL = getRandomImageUrl();
+    var obj = luismodel.info;
+    obj.title="Bot version info"
+    obj.subtitle ="";
+    obj.subtitle ="It was born in a cool Hackathon";
+    obj.imageURL = getRandomImageUrl();
+    resp.searchResult = getRandomImageUrl();
+    return resp;
+   
 }
 
 //function to get the email from ldap based on the name
@@ -54,7 +64,14 @@ function knowSomeone(fullName) {
 
 //function to send the motivation sentence
 function motivate() {
-
+    var resp = luismodel.baseSchema;
+    resp.intentType = "motivate";
+    resp.imageURL = getRandomImageUrl();
+    var motivationobject = luismodel.motivation;
+    motivationobject = motivation.get();
+    motivationobject.imageURL =getRandomImageUrl();
+    resp.searchResult = motivationobject;
+    return resp;
 }
 
 //function to get None was found
@@ -82,7 +99,7 @@ function Roles(fullName) {
 function sendAJoke() {
     var resp = luismodel.baseSchema;
     resp.intentType = "joke";
-    resp.imageURL = luismodel.imagelib[0];
+    resp.imageURL = getRandomImageUrl();
     var joke = luismodel.joke;
     joke.text = oneLinerJoke.getRandomJoke().body;
     resp.searchResult = joke;
@@ -97,7 +114,10 @@ function sendEmail(fullName) {
 
 }
 
-
+function getRandomImageUrl()
+{
+    return luismodel.imagelib[0];
+}
 module.exports = {
     'None': None,
     'project': project,

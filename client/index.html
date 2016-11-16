@@ -82,7 +82,67 @@
                 </div>
 
                 <div ng-show="$ctrl.isProjects">
-                    <project projects={{$ctrl.projects}}></project>
+                    <!--<project projects={{$ctrl.projects}}></project>-->
+
+                    <div class="col s12 m12 l12">
+                        <div class="card">
+                            <div class="card-content grey-text text-darken-4">
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th>leadId</th>
+                                        <th>masterLeadId</th>
+                                        <th>leadName</th>
+                                        <th>deliveryManager</th>
+                                        <th>owner</th>
+                                        <th>duration</th>
+                                        <th>creationDate</th>
+                                        <th>updationDate</th>
+                                        <th>status</th>
+                                        <th>comments</th>
+                                        <th>isLinkedToProject</th>
+                                        <th>linkedProjectId</th>
+                                        <th>costingRegionId</th>
+                                        <th>linkedProjectSnapshotId</th>
+                                        <th>isJiraProjectCreated</th>
+                                        <th>isTfsProjectCreated</th>
+                                        <th>isDatabaseMailSent</th>
+                                        <th>caseCode</th>
+                                        <th>projectName</th>
+                                        <th>projectKey</th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr ng-repeat="project in $ctrl.projects">
+
+                                        <td>{{project.leadId}}</td>
+                                        <td>{{project.masterLeadId}}</td>
+                                        <td>{{project.leadName}}</td>
+                                        <td>{{project.deliveryManager}}</td>
+                                        <td>{{project.owner}}</td>
+                                        <td>{{project.duration}}</td>
+                                        <td>{{project.creationDate}}</td>
+                                        <td>{{project.updationDate}}</td>
+                                        <td>{{project.status}}</td>
+                                        <td>{{project.comments}}</td>
+                                        <td>{{project.isLinkedToProject}}</td>
+                                        <td>{{project.linkedProjectId}}</td>
+                                        <td>{{project.costingRegionId}}</td>
+                                        <td>{{project.linkedProjectSnapshotId}}</td>
+                                        <td>{{project.isJiraProjectCreated}}</td>
+                                        <td>{{project.isTfsProjectCreated}}</td>
+                                        <td>{{project.isDatabaseMailSent}}</td>
+                                        <td>{{project.caseCode}}</td>
+                                        <td>{{project.projectName}}</td>
+                                        <td>{{project.projectKey}}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
 
             </div>

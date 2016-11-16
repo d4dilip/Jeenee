@@ -144,7 +144,8 @@ function sendEmail(fullName) {
 }
 
 function getRandomImageUrl() {
-    return luismodel.imagelib[0];
+   return luismodel.imagelib[Math.floor(Math.random()*luismodel.imagelib.length)];
+     
 }
 module.exports = {
     'None': None,

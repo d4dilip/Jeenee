@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+  <title>Jeenee:: Your buddy</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection" />
+
+</head>
+
+<body>
+  <nav class="white" role="navigation">
+    <div class="nav-wrapper container">
+      <a id="logo-container" href="#" class="brand-logo" style=""><i style="color:#177B57;" class="fa fa-eercast" aria-hidden="true"></i><span style="color:orange;">Jeenee</spn></a>
+
+      <ul id="nav-mobile" class="side-nav">
+        <li><a href="#">Navbar Link</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+
+  <div id="index-banner" class="parallax-container">
+    <div class="section no-pad-bot">
+      <div class="container">
+        <div class="row">
+          <h3 class="header center grey-text text-lighten-2">
+            <span><span style="color:#177B57;">  Ask me </span><span id="typeitdiv"></span> </span>
+            </span>
+          </h3>
+        </div>
+
+        <nav style="background-color:white;">
+          <div class="nav-wrapper">
+            <form>
+              <div class="input-field">
+                <input id="txtSearch" type="search" required placeholder="type your question here ...">
+                <label for="txtSearch"><i class="material-icons">search</i></label>
+                <i class="material-icons">close</i>
+              </div>
+            </form>
+          </div>
+        </nav>
+
+      </div>
+
+</div>
+
+      <div class="container">
+
+        <div>
+          <!-- results here -->
+          <div id="searchResults" style="color:black;"></div>
+        </div>
+      </div>
+
+
+
+
+      <!--  Scripts-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/jquery.typeit/4.2.3/typeit.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/handlebarsjs/4.0.5/handlebars.min.js"></script>
+      <script src="js/materialize.js"></script>
+      <script src="js/init.js"></script>
+
+      <script id="entry-template" type="text/x-handlebars-template">
+      
+<ul >
+  {{#each people}}
+    <li>{{this}}</li>
+  {{/each}}
+</ul>
+</script>
+      <script>
+        function ask(question) {
+             $("#searchResults").html("searching.....");
+    $.ajax({
+      url: "api/ask?q=" + question
+    }).done(function (data) {
+      renderResults(data);
+    });
+  }
+
+  function renderResults(data) {
+  
+var source   = $("#entry-template").html();
+var template = Handlebars.compile(source);   
+data={
+  people: [
+    "Yehuda Katz",
+    "Alan Johnson",
+    "Charles Jolley"
+  ]
+};
+var html    = template(data);
+    $("#searchResults").html(html);
+  }
+  function renderErrro(err) {
+    $("#searchResults").html("errrpor");
+  }
+$("#txtSearch").on('keyup', function () {
+    var value=$("#txtSearch").val();
+    setTimeout(function(){
+          if ($("#txtSearch").val() == value)
+          {
+                ask(value);      
+          }
+    },500);
+});
+$('#typeitdiv').typeIt({
+     strings: ['who is john doe','i am sad','list of projects in applabs','do something entertaining','show templates','what is john doe email','what is john doe projects'],
+     speed: 80,
+     autoStart: true,
+     breakLines:false,
+     lifeLike:true,
+     loop:true
+
+});
+</script>
+
+</body>
+
+</html>

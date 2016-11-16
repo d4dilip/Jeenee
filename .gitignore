@@ -2,3 +2,4 @@ node_modules
 npm-debug.log
 server/api/luis/luis.config.js
 
+.idea/

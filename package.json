@@ -16,6 +16,7 @@
   "author": "d4dilip <royalparinda11@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "bing-image": "^0.1.0",
     "body-parser": "^1.15.2",
     "compression": "^1.6.2",
     "connect-livereload": "^0.6.0",
@@ -24,6 +25,7 @@
     "ldapjs": "^1.0.1",
     "lodash": "^4.17.0",
     "morgan": "^1.7.0",
+    "motivation": "^1.0.3",
     "one-liner-joke": "^1.0.0",
     "serve-favicon": "^2.3.0"
   }

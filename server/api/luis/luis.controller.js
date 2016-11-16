@@ -18,7 +18,7 @@ var onSuccess = function (response) {
     console.log("Top Intent: " + response.topScoringIntent.intent);
 
     //just replace with the res.status(200).json()
-    console.log(intent[response.topScoringIntent.intent]());
+   // console.log(intent[response.topScoringIntent.intent]());
 
 
     console.log("Entities:");
@@ -53,7 +53,8 @@ exports.index = function (req, res) {
 
         //On success of prediction
         onSuccess: function (response) {
-            return res.status(200).json(onSuccess(response));
+            var resp=onSuccess(response);
+            return res.status(200).json(resp);
         },
 
         //On failure of prediction

@@ -1,12 +1,58 @@
+module.exports.baseSchema = {
+  "intentType":"",
+  "searchResult":{},
+  "imageURL":""
+}
 
-// uncomment the code belwo for mongodb 
-// 'use strict';
 
-// var mongoose = require('mongoose'),
-//     Schema = mongoose.Schema;
+module.exports.joke = {
+  "text":""
+}
 
-// var GreetSchema = new Schema({
-//     Text: String
-// }, { strict: false });
+module.exports.user ={
+  "firstname":"",
+  "lastname":"",
+  "profileURL":"",
+  "email":"",
+  "contact":[{},{}],
+  "profilePic":"",
+  "attributes":[{},{}]
+}
 
-// module.exports = mongoose.model('Greet', GreetSchema);
+module.exports.info = {
+  "title":"",
+  "Subtitle":"",
+  "description":"",
+  "reflink":""
+}
+
+module.exports.template = {
+  "name":"",
+  "title":"",
+  "tag":"",
+  "desc":"",
+  "link":"",
+  "sourceLink":"",
+  "doctype":""
+}
+
+module.exports.motivation ={
+"imageURL":"",
+"quote":"",
+"author":""
+}
+
+module.exports.unknown ={
+  "title":"",
+  "substr":"",
+  "desc":"",
+  "refLinks":[{},{}]
+}
+
+
+module.exports.attributes = {
+  "key":"",
+  "value": ""
+}
+
+module.exports.imagelib=["http://www.bing.com/az/hprichbg/rb/MountScott_EN-IN8765571755_1366x768.jpg","http://www.bing.com/az/hprichbg/rb/MountScott_EN-IN8765571755_1366x768.jpg"]

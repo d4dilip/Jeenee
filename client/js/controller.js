@@ -1,6 +1,11 @@
 jeenee.controller('appController', function ($scope, $http) {
 
     var self = this;
+
+
+
+
+
     self.author = '';
     self.imageURL = '';
     self.text = '';
@@ -21,12 +26,14 @@ jeenee.controller('appController', function ($scope, $http) {
             self.isJoke = false;
             self.isProjects = false;
             self.isTemplatesCard = false;
+            self.isvignete = false;
         }
         if (self.query && self.query.length > 5) {
             self.isMotivateCard = false;
             self.isJoke = false;
             self.isProjects = false;
             self.isTemplatesCard = false;
+            self.isvignete = false;
             setTimeout(function () {
                 $http.get('http://localhost:9000/api/ask?q=' + encodeURIComponent(self.query)).then(function (data) {
                     if (data.data.searchResult && self.query.length > 5) {
@@ -55,6 +62,11 @@ jeenee.controller('appController', function ($scope, $http) {
                             self.isTemplatesCard = true;
                             self.templates = data.data.searchResult;
                             console.log(self.templates);
+                        }
+
+                        if(data.data.intentType == 'vignetts'){
+                            self.isvignete = true;
+                            self.vignetes = data.data.searchResult;
                         }
 
 

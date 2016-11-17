@@ -5522,3 +5522,7 @@ module.exports.templateslib = [
     , { "category": "Initiate and Plan", "name": "Template high level plan (Excel sheet)", "reflink": "http://appstfs.bcg.com/tfs/AppsBCG/5197e1c9-f023-45c8-beb9-5bedbd4c87a5/_api/_versioncontrol/itemContent?repositoryId=&path=%24%2FRPD%2F03+-Initiate+and+Plan%2FTemplate_High+Level+Plan.xlsx", "doctype": "xls" }
     , { "category": "Initiate and Plan", "name": "Template high level plan (Excel sheet)", "reflink": "http://edcikaapppv01/tfs/AppsBCG/5197e1c9-f023-45c8-beb9-5bedbd4c87a5/_api/_versioncontrol/itemContent?repositoryId=&path=%24%2FRPD%2F03+-Initiate+and+Plan%2FProject+Kick-off+template.potx", "doctype": "ppt" }
 ];
+module.exports.vignetteslib=[
+{url: "Airport Programme Management Dashboard.png"},
+{url: "Apparel Management Web Application.png"}
+];

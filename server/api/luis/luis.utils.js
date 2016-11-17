@@ -9,6 +9,7 @@ var luismodel = require('./luis.model');
 var bingImage = require('bing-image');
 var motivation = require('motivation');
 var request = require('sync-request');
+var fs= require('fs');
 //var ntlm = require('request-ntlm');
 //function to send entertaining images
 function Entertain() {
@@ -157,6 +158,31 @@ function getRandomImageUrl() {
    return luismodel.imagelib[Math.floor(Math.random()*luismodel.imagelib.length)];
      
 }
+function getVignettes(vignettes)
+{
+//     const testFolder = 'images/viggnetts';
+// ///const fs = require('fs');
+// fs.readdir(testFolder, function(err, files) {
+//   files.forEach(function(file) {
+//     console.log(file);
+//   });
+// })
+     var vg = [];
+    luismodel.vignetteslib.forEach(function(e) {
+        if (e.url.toLowerCase().indexOf(vignettes) > 0) {
+            var v = {};
+            v.url = e.url;           
+            vg.push(v);
+        }
+    });
+
+    var resp = luismodel.baseSchema;
+    resp.intentType = "vignettes";
+    resp.imageURL = getRandomImageUrl();
+    resp.searchResult = vg;
+    return resp;
+}
+
 module.exports = {
     'None': None,
     'project': project,
@@ -170,5 +196,6 @@ module.exports = {
     'GetName': GetName,
     'getEmail': getEmail,
     'getBotInfo': getBotInfo,
-    'Entertain': Entertain
+    'Entertain': Entertain,
+    'getVignettes':getVignettes
 };

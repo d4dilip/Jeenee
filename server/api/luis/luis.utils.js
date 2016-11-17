@@ -160,13 +160,6 @@ function getRandomImageUrl() {
 }
 function getVignettes(vignettes)
 {
-//     const testFolder = 'images/viggnetts';
-// ///const fs = require('fs');
-// fs.readdir(testFolder, function(err, files) {
-//   files.forEach(function(file) {
-//     console.log(file);
-//   });
-// })
      var vg = [];
     luismodel.vignetteslib.forEach(function(e) {
         if (e.url.toLowerCase().indexOf(vignettes) > 0) {

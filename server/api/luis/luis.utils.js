@@ -94,7 +94,7 @@ function project(fullName) {
             p.comments = e.comments;
             p.casecode = e.caseCode;
             p.deliverymanager = e.deliveryManager;
-            p.refLink = "http://applabsapp.bcg.com/pmotools/";
+            p.refLink = "http://http://google.com";
             projects.push(p);
         }
     });
@@ -112,7 +112,8 @@ function ProjectList(fullName) {
     var projects = [];
     luismodel.projectslib.gridData.forEach(function (e) {
       //  console.log(e.leadName);
-        if ((e.deliveryManager && e.deliveryManager.toLowerCase().indexOf(fullName) > 0)) {
+        //if ((e.deliveryManager && e.deliveryManager.toLowerCase().indexOf(fullName) > 0)) 
+        {
             var p = {};//luismodel.project;
             p.name = e.leadName;
             p.id = e.leadId;
@@ -121,7 +122,7 @@ function ProjectList(fullName) {
             p.comments = e.comments;
             p.casecode = e.caseCode;
             p.deliverymanager = e.deliveryManager;
-            p.refLink = "http://applabsapp.bcg.com/pmotools/";
+            p.refLink = "http://google/com";
             projects.push(p);
         }
     });

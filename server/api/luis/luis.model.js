@@ -104,11 +104,11 @@ module.exports.projectslib = {
     "totalGridSize": 247
 }
 module.exports.templateslib = [
-    { category: "Proposal", "name": "High level budget (Excel sheet)", "reflink": "http://example.com/tfs/AppsBCG/5197e1c9-f023-45c8-beb9-5bedbd4c87a5/_api/_versioncontrol/itemContent?repositoryId=&path=%24%2FRPD%2F01+-Proposal%2FHigh+Level+Budget+V2.xlsm", "doctype": "xls" }
-    , { "category": "Proposal", "name": "Initial story list (Excel sheet)", "reflink": "http://example.com/tfs/AppsBCG/5197e1c9-f023-45c8-beb9-5bedbd4c87a5/_api/_versioncontrol/itemContent?repositoryId=&path=%24%2FRPD%2F01+-Proposal%2FInitial+Story+List.xlsx", "doctype": "xls" }
-    , { "category": "Ideation", "name": "Template application tool - Technical specs (Powerpoint presentation)", "reflink": "http://example.com/tfs/AppsBCG/5197e1c9-f023-45c8-beb9-5bedbd4c87a5/_api/_versioncontrol/itemContent?repositoryId=&path=%24%2FRPD%2F02+-Ideation%2FTemplate_Application+Tool+-+Technical+Specs.pptx", "doctype": "ppt" }
-    , { "category": "Initiate and Plan", "name": "Template high level plan (Excel sheet)", "reflink": "http://example.com/tfs/AppsBCG/5197e1c9-f023-45c8-beb9-5bedbd4c87a5/_api/_versioncontrol/itemContent?repositoryId=&path=%24%2FRPD%2F03+-Initiate+and+Plan%2FTemplate_High+Level+Plan.xlsx", "doctype": "xls" }
-    , { "category": "Initiate and Plan", "name": "Template high level plan (Excel sheet)", "reflink": "http://edcikaapppv01/tfs/AppsBCG/5197e1c9-f023-45c8-beb9-5bedbd4c87a5/_api/_versioncontrol/itemContent?repositoryId=&path=%24%2FRPD%2F03+-Initiate+and+Plan%2FProject+Kick-off+template.potx", "doctype": "ppt" }
+    { category: "Cat1", "name": "(Excel sheet)", "reflink": "http://http://google.com", "doctype": "xls" }
+    , { "category": "Cat1", "name": " (Excel sheet)", "reflink": "http://http://google.com", "doctype": "xls" }
+    , { "category": "Cat2", "name": " (Powerpoint presentation)", "reflink": "http://http://google.com", "doctype": "ppt" }
+    , { "category": "Cat3", "name": "plan (Excel sheet)", "reflink": "http://http://google.com", "doctype": "xls" }
+    , { "category": "Cat 4", "name": " plan (Excel sheet)", "reflink": "http://http://google.com", "doctype": "ppt" }
 ];
 module.exports.vignetteslib=
    [ {url: 'http://yourshot.nationalgeographic.com/u/fQYSUbVfts-T7pS2VP2wnKyN8wxywmXtY0-FwsgxpcY-JQkEooTVTrmkoUuX_HBtLpP7yAuFzClDxrVFvp6rTE72mrL6zg-wn4F5igZ151c4bVlWRx_O4HDEoD56aW4_IGRGkc3ygQz10vcyYV4UKaoghMpGJDukNaRYsrbyOycd8QEd56JZbQwU-oWPJtZy-dSzZwteSvjlQzcpBA/',

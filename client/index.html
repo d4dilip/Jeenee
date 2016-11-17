@@ -134,9 +134,13 @@
                                             <p>{{template.name}}</p>
                                         </div>
                                         <div class="card-action">
-                                            <i class="fa fa-file-excel-o" ng-show="{{template.doctype}}=='xls'"></i>
-                                            <!--<i class="fa fa-file-excel-o" aria-hidden="true" ng-if="{{template.doctype}}=='xls''"></i> -->
-                                            <a ng-href="{{template.reflink}}">Open</a>
+
+                                            <a ng-href="{{template.reflink}}">
+                                                <i ng-class="template.doctype=='xls'?'fa fa-file-excel-o':''"></i>
+                                                <i ng-class="template.doctype=='word'?'fa fa-file-word-o':''"></i>
+                                                <i ng-class="template.doctype=='ppt'?'fa fa-file-powerpoint-o':''"></i> &nbsp;&nbsp;Open
+
+                                            </a>
 
                                         </div>
                                     </div>
@@ -153,19 +157,13 @@
 
             <div class="card">
                 <div class="card-content">
-                    <span class="card-title">title</span>
+                    <span class="card-title">Commit Status</span>
                     <p>content</p>
-                </div>
-                <div class="card-action">
-                    <i class="fa fa-file-excel-o"></i>
-                    <!--<i class="fa fa-file-excel-o" aria-hidden="true" ng-if="{{template.doctype}}=='xls''"></i> -->
-                    <a>Open</a>
-
                 </div>
             </div>
 
 
-            
+
             <div class="card">
                 <div class="card-content">
                     <span class="card-title">title</span>
@@ -180,7 +178,7 @@
             </div>
 
 
-            
+
             <div class="card">
                 <div class="card-content">
                     <span class="card-title">title</span>

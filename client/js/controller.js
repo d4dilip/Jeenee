@@ -64,7 +64,7 @@ jeenee.controller('appController', function ($scope, $http) {
                             console.log(self.templates);
                         }
 
-                        if(data.data.intentType == 'vignetts'){
+                        if(data.data.intentType == 'vignettes'){
                             self.isvignete = true;
                             self.vignetes = data.data.searchResult;
                         }

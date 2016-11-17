@@ -9,7 +9,7 @@ var luismodel = require('./luis.model');
 var bingImage = require('bing-image');
 var motivation = require('motivation');
 var request = require('sync-request');
-var fs= require('fs');
+var fs = require('fs');
 //var ntlm = require('request-ntlm');
 //function to send entertaining images
 function Entertain() {
@@ -80,18 +80,20 @@ function None() {
 }
 
 //function to get the current project the user is working on
-function project(leadName) {
+function project(fullName) {
+    // return ProjectList(fullName);
     var projects = [];
-    luismodel.projectslib.gridData.forEach(function(e) {
-        if (e.leadName.toLowerCase().indexOf(leadName) > 0) {
+    luismodel.projectslib.gridData.forEach(function (e) {
+         //console.log("%s   :: %s" ,e.leadName,e.leadName.indexOf(fullName));
+        if (e.leadName && e.leadName != "" && (e.leadName.indexOf(fullName))) {
             var p = {};//luismodel.project;
             p.name = e.leadName;
             p.id = e.leadId;
-            p.owner= e.owner;
-            p.status= e.status;
-            p.comments= e.comments;
-            p.casecode= e.caseCode;
-            p.deliverymanager= e.deliveryManager;
+            p.owner = e.owner;
+            p.status = e.status;
+            p.comments = e.comments;
+            p.casecode = e.caseCode;
+            p.deliverymanager = e.deliveryManager;
             p.refLink = "http://applabsapp.bcg.com/pmotools/";
             projects.push(p);
         }
@@ -108,16 +110,17 @@ function project(leadName) {
 //function to get the list of project from the user
 function ProjectList(fullName) {
     var projects = [];
-    luismodel.projectslib.gridData.forEach(function(e) {
-        if (e.deliveryManager.toLowerCase().indexOf(fullName) > 0) {
+    luismodel.projectslib.gridData.forEach(function (e) {
+      //  console.log(e.leadName);
+        if ((e.deliveryManager && e.deliveryManager.toLowerCase().indexOf(fullName) > 0)) {
             var p = {};//luismodel.project;
             p.name = e.leadName;
             p.id = e.leadId;
-            p.owner= e.owner;
-            p.status= e.status;
-            p.comments= e.comments;
-            p.casecode= e.caseCode;
-            p.deliverymanager= e.deliveryManager;
+            p.owner = e.owner;
+            p.status = e.status;
+            p.comments = e.comments;
+            p.casecode = e.caseCode;
+            p.deliverymanager = e.deliveryManager;
             p.refLink = "http://applabsapp.bcg.com/pmotools/";
             projects.push(p);
         }
@@ -155,17 +158,16 @@ function sendEmail(fullName) {
 }
 
 function getRandomImageUrl() {
-   return luismodel.imagelib[Math.floor(Math.random()*luismodel.imagelib.length)];
-     
+    return luismodel.imagelib[Math.floor(Math.random() * luismodel.imagelib.length)];
+
 }
-function getVignettes(vignettes)
-{
-     var vg = [];
-    luismodel.vignetteslib.forEach(function(e) {
+function getVignettes(vignettes) {
+    var vg = [];
+    luismodel.vignetteslib.forEach(function (e) {
         if (e.url.toLowerCase().indexOf(vignettes) > 0) {
             var v = {};
-            v.url = e.url;  
-            v.name= e.name;         
+            v.url = e.url;
+            v.name = e.name;
             vg.push(v);
         }
     });
@@ -191,5 +193,5 @@ module.exports = {
     'getEmail': getEmail,
     'getBotInfo': getBotInfo,
     'Entertain': Entertain,
-    'getVignettes':getVignettes
+    'getVignettes': getVignettes
 };

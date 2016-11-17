@@ -84,71 +84,61 @@
 
                             <div ng-show="$ctrl.isProjects">
                                 <!--<project projects={{$ctrl.project}}></project>-->
-                                <div class="col12 s12 m12 l12" ng-show="$ctrl.projects.length ==0">
+                                <div class="col s12 m12 l12" ng-show="$ctrl.projects.length ==0">
                                     <div class="card">
                                         <div class="card-content ">
                                             Nothing found.
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col12 s12 m12 l12" ng-show="$ctrl.projects.length >0">
-                                    <div class="card">
-                                        <div class="card-content ">
-                                            <div class="row" ng-repeat="project in $ctrl.projects">
-                                                <div class="col s12 m12">
-                                                    <div class="card">
-                                                        <div class="card-content">
-                                                            <p> <span class="card-title">{{project.id}} - {{project.name}}</span>                                                                </p>
-                                                            <p> <span><b>Comments</b> :{{project.comments}}</span></p>
-                                                            <p> <span><b>Status:</b> {{project.status}}</span></p>
-                                                            <p> <span><b>Owner:</b> {{project.owner}} </span></p>
-                                                            <p> <span><b>Manager:</b> {{project.deliverymanager}}</span></p>
-                                                            <p> <span><b>Casecode:</b>{{project.casecode}}</span></p>
-                                                        </div>
-                                                        <div class="card-action">
-                                                            <!--<i class="fa fa-file-excel-o" aria-hidden="true" ng-if="{{template.doctype}}=='xls''"></i> -->
-                                                            <a ng-href="{{project.refLink}}">Open</a>
 
 
-                                                        </div>
-                                                    </div>
+
+                                <div class="row" ng-show="$ctrl.projects.length >0">
+
+                                    <div ng-repeat="project in $ctrl.projects">
+
+                                        <div class="col s12 m12 l12">
+
+                                            <div class="card">
+                                                <div class="card-content">
+                                                    <p> <span class="card-title">{{project.id}} - {{project.name}}</span> </p>
+                                                    <p> <span><b>Comments</b> :{{project.comments}}</span></p>
+                                                    <p> <span><b>Status:</b> {{project.status}}</span></p>
+                                                    <p> <span><b>Owner:</b> {{project.owner}} </span></p>
+                                                    <p> <span><b>Manager:</b> {{project.deliverymanager}}</span></p>
+                                                    <p> <span><b>Case code:</b>{{project.casecode}}</span></p>
+                                                </div>
+                                                <div class="card-action">
+                                                    <!--<i ng-class="{{template.doctype}}=='xls'? fa fa-file-excel-o:'' " aria-hidden="true" ng-if="{{template.doctype}}=='xls''"></i> -->
+                                                    <!---<i class="fa fa-file-excel-o" aria-hidden="true" ng-if="{{template.doctype}}=='xls''"></i> -->
+                                                    -<i class="fa fa-file-excel-o" aria-hidden="true" ng-if="{{template.doctype}}=='xls''"></i> -->-->
+                                                    <a ng-href="{{project.refLink}}">Open</a>
                                                 </div>
                                             </div>
 
-
                                         </div>
-
 
 
 
                                     </div>
+
                                 </div>
+
                             </div>
-                            <div ng-show="$ctrl.isTemplatesCard">
-
-                                <div class="col12 s12 m12 l12">
+                            <div class="row" style="display:table;" ng-show="$ctrl.isTemplatesCard">
+                                <div class="col s12 m12 l12" style="display: table-cell;" ng-repeat="template in $ctrl.templates">
                                     <div class="card">
-                                        <div class="card-content ">
-                                            <div class="row" ng-repeat="template in $ctrl.templates">
-                                                <div class="col s12 m12">
-                                                    <div class="card">
-                                                        <div class="card-content">
-                                                            <span class="card-title">{{template.category}}</span>
-                                                            <p>{{template.name}}</p>
-                                                        </div>
-                                                        <div class="card-action">
-
-                                                            <!--<i class="fa fa-file-excel-o" aria-hidden="true" ng-if="{{template.doctype}}=='xls''"></i> -->
-                                                            <a ng-href="{{tempalate.reflink}}">Open</a>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
+                                        <div class="card-content">
+                                            <span class="card-title">{{template.category}}</span>
+                                            <p>{{template.name}}</p>
+                                        </div>
+                                        <div class="card-action">
+                                             <i class="fa fa-file-excel-o" ng-show="{{template.doctype}}=='xls'"></i>
+                                              <!--<i class="fa fa-file-excel-o" aria-hidden="true" ng-if="{{template.doctype}}=='xls''"></i> -->
+                                            <a ng-href="{{template.reflink}}">Open</a>
 
                                         </div>
-
                                     </div>
                                 </div>
                             </div>

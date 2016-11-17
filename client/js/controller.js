@@ -13,6 +13,7 @@ jeenee.controller('appController', function ($scope, $http) {
     self.isJoke = false;
     self.isProjects = false;
     self.isTemplatesCard = false;
+    self.isVinetes = false;
     self.getOutput = function () {
 
         // console.log(self.query.length);
@@ -26,14 +27,14 @@ jeenee.controller('appController', function ($scope, $http) {
             self.isJoke = false;
             self.isProjects = false;
             self.isTemplatesCard = false;
-            self.isvignete = false;
+            self.isVinetes = false;
         }
         if (self.query && self.query.length > 5) {
             self.isMotivateCard = false;
             self.isJoke = false;
             self.isProjects = false;
             self.isTemplatesCard = false;
-            self.isvignete = false;
+            self.isVinetes = false;
             setTimeout(function () {
                 $http.get('http://localhost:9000/api/ask?q=' + encodeURIComponent(self.query)).then(function (data) {
                     if (data.data.searchResult && self.query.length > 5) {
@@ -64,8 +65,8 @@ jeenee.controller('appController', function ($scope, $http) {
                             console.log(self.templates);
                         }
 
-                        if(data.data.intentType == 'vignettes'){
-                            self.isvignete = true;
+                        if (data.data.intentType == 'vignettes') {
+                            self.isVinetes = true;
                             self.vignetes = data.data.searchResult;
                         }
 

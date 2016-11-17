@@ -164,7 +164,8 @@ function getVignettes(vignettes)
     luismodel.vignetteslib.forEach(function(e) {
         if (e.url.toLowerCase().indexOf(vignettes) > 0) {
             var v = {};
-            v.url = e.url;           
+            v.url = e.url;  
+            v.name= e.name;         
             vg.push(v);
         }
     });

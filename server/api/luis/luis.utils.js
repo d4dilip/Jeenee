@@ -22,7 +22,7 @@ function getBotInfo() {
     resp.intentType = "info";
     resp.imageURL = getRandomImageUrl();
     var obj = luismodel.info;
-    obj.title = "Bot version info"
+    obj.title = "Jeenee version info"
     obj.subtitle = "";
     obj.subtitle = "It was born in a cool Hackathon";
     obj.imageURL = getRandomImageUrl();
@@ -83,12 +83,16 @@ function project(leadName) {
     var projects = [];
     luismodel.projectslib.gridData.forEach(function(e) {
         if (e.leadName.toLowerCase().indexOf(leadName) > 0) {
-            var p = luismodel.project;
+            var p = {};//luismodel.project;
             p.name = e.leadName;
             p.id = e.leadId;
+            p.owner= e.owner;
+            p.status= e.status;
+            p.comments= e.comments;
+            p.casecode= e.caseCode;
+            p.deliverymanager= e.deliveryManager;
             p.refLink = "http://applabsapp.bcg.com/pmotools/";
-            e.comments = e.comments.trim();
-            projects.push(e);
+            projects.push(p);
         }
     });
 
@@ -105,11 +109,16 @@ function ProjectList(fullName) {
     var projects = [];
     luismodel.projectslib.gridData.forEach(function(e) {
         if (e.deliveryManager.toLowerCase().indexOf(fullName) > 0) {
-            var p = luismodel.project;
+            var p = {};//luismodel.project;
             p.name = e.leadName;
             p.id = e.leadId;
+            p.owner= e.owner;
+            p.status= e.status;
+            p.comments= e.comments;
+            p.casecode= e.caseCode;
+            p.deliverymanager= e.deliveryManager;
             p.refLink = "http://applabsapp.bcg.com/pmotools/";
-            projects.push(e);
+            projects.push(p);
         }
     });
 
